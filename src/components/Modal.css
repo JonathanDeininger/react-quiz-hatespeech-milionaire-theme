@@ -1,0 +1,38 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* backdrop-filter: blur(5px); */ /* Entfernt, um das Modal nicht unscharf zu machen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #1a0591;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+  color: #fff;
+}
+
+.next-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #ca6608;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.next-button:hover {
+  background: #e9a456;
+}
