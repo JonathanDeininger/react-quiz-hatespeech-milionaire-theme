@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import Background_music from "../assets/Background_music.mp3";
 import fiveToEight from "../assets/five-eight.mp3";
 import eightToEleven from "../assets/eight-eleven.mp3";
 import elevenToThirteen from "../assets/eleven-thirteen.mp3";
 import fourteen from "../assets/fourteen.mp3";
 import fifteen from "../assets/fifteen.mp3";
-import millionaireRave from "../assets/MillionaireRave.mp3";
 
 const Quiz = ({
   questions,
@@ -25,20 +23,20 @@ const Quiz = ({
 
   // refs for various audio tracks
   const audioRefs = {
-    backgroundMusic: useRef(new Audio(Background_music)),
     fiveToEight: useRef(new Audio(fiveToEight)),
     eightToEleven: useRef(new Audio(eightToEleven)),
     elevenToThirteen: useRef(new Audio(elevenToThirteen)),
     fourteen: useRef(new Audio(fourteen)),
     fifteen: useRef(new Audio(fifteen)),
-    millionaireRave: useRef(new Audio(millionaireRave)),
     // TODO: add correct/incorrect sounds, maybe lock in answer
   };
 
   // Better way to play multiple audios. Plays song for the round and stops and resets all other audio tracks
   const playAudio = (audioRef) => {
     Object.values(audioRefs).forEach((ref) => {
-      if (ref.current !== audioRef.current) {
+      if (
+        ref.current !== audioRef.current
+      ) {
         ref.current.pause();
         ref.current.currentTime = 0;
       }
@@ -51,36 +49,45 @@ const Quiz = ({
     });
   };
 
+  // Modify the existing useEffect to exclude backgroundMusic
   useEffect(() => {
     if (quizStarted) {
       const {
-        backgroundMusic,
         fiveToEight,
         eightToEleven,
         elevenToThirteen,
         fourteen,
         fifteen,
-        millionaireRave,
       } = audioRefs;
 
-      // Play specific songs for question numbers. Works fine for different rounds
-      if (questionNumber < 6) {
-        playAudio(backgroundMusic);
-      } else if (questionNumber < 9) {
-        playAudio(fiveToEight);
-      } else if (questionNumber < 12) {
-        playAudio(eightToEleven);
-      } else if (questionNumber < 14) {
-        playAudio(elevenToThirteen);
-      } else if (questionNumber === 14) {
-        playAudio(fourteen);
-      } else if (questionNumber === 15) {
-        playAudio(fifteen);
-      } else if (questionNumber === 16) {
-        playAudio(millionaireRave);
-      }
+      // Play specific audio based on question number, excluding backgroundMusic
+      const playSpecificAudio = () => {
+        if (questionNumber < 6) {
+        } else if (questionNumber < 9) {
+          playAudio(fiveToEight);
+        } else if (questionNumber < 12) {
+          playAudio(eightToEleven);
+        } else if (questionNumber < 14) {
+          playAudio(elevenToThirteen);
+        } else if (questionNumber === 14) {
+          playAudio(fourteen);
+        } else if (questionNumber === 15) {
+          playAudio(fifteen);
+        }
+      };
+
+      playSpecificAudio();
     }
   }, [questionNumber, quizStarted, audioRefs, playAudio]);
+
+  useEffect(() => {
+    return () => {
+      Object.values(audioRefs).forEach(ref => {
+        ref.current.pause();
+        ref.current.currentTime = 0;
+      });
+    };
+  }, [audioRefs]);
 
   // Update the current question when the question number changes
   useEffect(() => {
@@ -115,26 +122,19 @@ const Quiz = ({
     if (!selectedAnswer) {
       alert("Sie können keine Antwort sperren, wenn sie nicht ausgewählt ist!");
     } else if (!answersLocked) {
-      setAnswersLocked(true); // Jetzt korrekt definiert
+      setAnswersLocked(true);
       
-      delay(3000, () => {
-        setExplanation(question.explanation); // Erklärungstext setzen
-        setShowExplanationModal(true); // Globales Modal anzeigen
-
-        if (selectedAnswer.correct) {
-          // Keine automatische Weiterleitung
-        } else {
-          delay(1000, () => {
-            setAnswersLocked(false);
-            setTimeOut(true);
-            setShowExplanationModal(false); // Modal schließen bei Fehler
-          });
-        }
-      });
+      // Entfernen Sie die Verzögerung und führen Sie die Logik sofort aus
+      if (selectedAnswer.correct) {
+        setExplanation(question.explanation);
+        setShowExplanationModal(true);
+      } else {
+        setExplanation(`Das war falsch: ${question.explanation}`);
+        setShowExplanationModal(true);
+        setTimeOut(true); // Aktivieren Sie setTimeOut, um "Starte neu!" anzuzeigen
+      }
     }
   };
-
-  // Handles the "Weiter" button click im Modal wird jetzt in App.js verwaltet
 
   return (
     <div className="quiz-content">

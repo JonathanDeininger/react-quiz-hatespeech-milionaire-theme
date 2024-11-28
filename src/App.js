@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import GameOver from "./components/GameOver";
 import GameWinner from "./components/GameWinner";
 import Quiz from "./components/Quiz";
 import Timer from "./components/Timer";
@@ -33,6 +32,19 @@ function App() {
     setIsMillionaire(true);
   };
 
+  const resetGame = () => {
+    setQuestionNumber(1);
+    setTimeOut(false);
+    setIsMillionaire(false);
+    setEarnedMoney("0 €");
+    setQuizStarted(false);
+    setShowExplanationModal(false);
+    setExplanation("");
+    
+    // Optionally, ensure all audio is stopped by unmounting Quiz component
+    // This is already handled by the cleanup in Quiz.js
+  };
+
   const handleNextQuestion = () => {
     setQuestionNumber((prev) => prev + 1);
     setAnswersLocked(false);
@@ -43,11 +55,17 @@ function App() {
   return (
     <div className="App">
       <div className={`main ${showExplanationModal ? "blur" : ""}`}>
-        {timeOut ? (
+        {/* Entfernen Sie den GameOver-Block */}
+        {/* {timeOut ? (
           <GameOver className="game-over" earnedMoney={earnedMoney} />
         ) : isMillionaire ? (
           <GameWinner className="game-over" />
         ) : (
+          // game content
+        )} */}
+
+        {/* Aktualisieren Sie die Bedingung zur Anzeige des GameWinner */}
+        {!isMillionaire && !timeOut && (
           <div className="game-container">
             <div className="quiz-section">
               <div className="timer">
@@ -91,14 +109,27 @@ function App() {
             </div>
           </div>
         )}
+
+        {/* Anzeige von GameWinner, falls isMillionaire true ist */}
+        {isMillionaire && (
+          <GameWinner className="game-over" />
+        )}
       </div>
       {showExplanationModal && (
         <Modal>
           <div className="explanation-modal">
-            <p>{explanation}</p>
-            <button className="next-button" onClick={handleNextQuestion}>
-              Weiter
-            </button>
+            <p>
+              {explanation} {!timeOut && "🎉"}
+            </p>
+            {isMillionaire || timeOut ? (
+              <button className="next-button" onClick={resetGame}>
+                Starte neu!
+              </button>
+            ) : (
+              <button className="next-button" onClick={handleNextQuestion}>
+                Weiter
+              </button>
+            )}
           </div>
         </Modal>
       )}

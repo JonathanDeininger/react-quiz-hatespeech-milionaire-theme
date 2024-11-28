@@ -5,34 +5,54 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  /* backdrop-filter: blur(5px); */ /* Entfernt, um das Modal nicht unscharf zu machen */
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: x-large;
   z-index: 1000;
 }
 
 .modal-content {
   background-color: #1a0591;
-  padding: 20px;
+  padding: 30px;
   border-radius: 10px;
-  width: 80%;
-  max-width: 500px;
+  width: 90%;
+  max-width: 600px;
   text-align: center;
   color: #fff;
+  font-size: 24px;
 }
 
 .next-button {
-  margin-top: 20px;
+  margin: 20px auto 0 auto; /* Ensure top margin and center horizontally */
   padding: 10px 20px;
   background: #ca6608;
   border: none;
   border-radius: 5px;
   color: #fff;
-  font-size: 18px;
+  font-size: 24px;
   cursor: pointer;
 }
 
 .next-button:hover {
   background: #e9a456;
+}
+
+.explanation-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+}
+
+.explanation-modal p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  width: 50vw;
+}
+
+.explanation-modal p span {
+  margin-left: 10px;
+  font-size: 24px;
 }
