@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react-millionaire/static/css/main.945de07e.css",
+    "main.js": "/react-millionaire/static/js/main.34b74da2.js",
+    "static/js/512.29f0d401.chunk.js": "/react-millionaire/static/js/512.29f0d401.chunk.js",
+    "static/media/background.jpg": "/react-millionaire/static/media/background.587a1e91992cf6aeeb23.jpg",
+    "index.html": "/react-millionaire/index.html",
+    "main.945de07e.css.map": "/react-millionaire/static/css/main.945de07e.css.map",
+    "main.34b74da2.js.map": "/react-millionaire/static/js/main.34b74da2.js.map",
+    "512.29f0d401.chunk.js.map": "/react-millionaire/static/js/512.29f0d401.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.945de07e.css",
+    "static/js/main.34b74da2.js"
+  ]
+}
