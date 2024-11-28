@@ -1,14 +1,8 @@
 import React from "react";
-import "./Modal.css";
+import "./Modal.css"; // Ensure Modal.css is imported
 
 const Modal = ({ children }) => {
-  return (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        {children}
-      </div>
-    </div>
-  );
+  return <div className="modal-overlay">{children}</div>;
 };
 
 export default Modal;
