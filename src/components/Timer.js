@@ -3,24 +3,28 @@ import { useEffect, useState } from "react";
 const Timer = ({ setTimeOut, questionNumber, answersLocked, quizStarted, isPaused }) => {
   const [timer, setTimer] = useState(60);
 
+  // Reset timer when question changes
   useEffect(() => {
-    if (!quizStarted || isPaused) return; // Pause timer if not started or paused
+    setTimer(60);
+  }, [questionNumber]);
+
+  // Handle timer countdown
+  useEffect(() => {
+    if (!quizStarted || isPaused || answersLocked) return;
+    
     if (timer === 0) {
       setTimeOut(true);
       return;
     }
+
     const interval = setInterval(() => {
       setTimer((prev) => prev - 1);
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [timer, setTimeOut, quizStarted, isPaused]);
+  }, [timer, setTimeOut, quizStarted, isPaused, answersLocked]);
 
-  useEffect(() => {
-    setTimer(60);
-  }, [questionNumber]);
-
-  return quizStarted ? <div className="timer">{timer}</div> : null; // Render timer visually
+  return quizStarted ? <div className="timer">{timer}</div> : null;
 };
 
 export default Timer;

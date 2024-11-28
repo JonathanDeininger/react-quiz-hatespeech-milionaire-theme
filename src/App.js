@@ -36,10 +36,10 @@ function App() {
     setTimeOut(false);
     setIsMillionaire(false);
     setEarnedMoney("0 €");
-    setQuizStarted(false);
+    setQuizStarted(true); // Change from false to true to start the quiz immediately
     setShowExplanationModal(false);
     setExplanation({ message: "", detail: "" }); // Reset to object
-    
+    setAnswersLocked(false); // Add this line to unlock answers
     // Optionally, ensure all audio is stopped by unmounting Quiz component
     // This is already handled by the cleanup in Quiz.js
   };
@@ -51,10 +51,22 @@ function App() {
     setExplanation({ message: "", detail: "" }); // Reset to object
   };
 
+  useEffect(() => {
+    if (timeOut) {
+      // Check if the modal is not already showing an explanation for a wrong answer
+      if (!explanation.message || explanation.detail === "Die Zeit ist abgelaufen!") {
+        setExplanation({
+          message: "Das war falsch:",
+          detail: "Die Zeit ist abgelaufen!",
+        });
+        setShowExplanationModal(true);
+      }
+    }
+  }, [timeOut, explanation.message, explanation.detail]);
+
   return (
     <div className="App">
       <div className={`main ${showExplanationModal ? "blur" : ""}`}>
-  
         {/* Conditional rendering of Game Content */}
         {!isMillionaire && !timeOut && (
           <div className="game-container">
@@ -102,8 +114,6 @@ function App() {
             </div>
           </div>
         )}
-
-
       </div>
       
       {/* Modal Integration */}

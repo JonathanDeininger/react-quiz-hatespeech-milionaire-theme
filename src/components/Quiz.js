@@ -19,6 +19,7 @@ const Quiz = ({
   // Update the current question when the question number changes
   useEffect(() => {
     setQuestion(questions[questionNumber - 1]);
+    setSelectedAnswer(null); // Reset selected answer when question changes
   }, [questions, questionNumber]);
 
 
@@ -66,7 +67,7 @@ const Quiz = ({
         // Incorrect answer
         setExplanation({ message: "Das war falsch:", detail: question.explanation });
         setShowExplanationModal(true);
-        setTimeOut(true); // Activate setTimeOut to display "Starte neu!"
+        setTimeOut(true); // Add this back to end the game on wrong answer
       }
     }
   };
@@ -106,7 +107,7 @@ const Quiz = ({
               </button>
             ))}
           </div>
-          <button className="lock-in-button" onClick={handleLockIn}>
+          <button className="lock-in-button" onClick={handleLockIn} disabled={!selectedAnswer}>
             Antwort einloggen
           </button>
         </>
@@ -116,3 +117,4 @@ const Quiz = ({
 };
 
 export default Quiz;
+
