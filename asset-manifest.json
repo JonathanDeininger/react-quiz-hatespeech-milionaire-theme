@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-millionaire/static/css/main.945de07e.css",
-    "main.js": "/react-millionaire/static/js/main.34b74da2.js",
-    "static/js/512.29f0d401.chunk.js": "/react-millionaire/static/js/512.29f0d401.chunk.js",
-    "static/media/background.jpg": "/react-millionaire/static/media/background.587a1e91992cf6aeeb23.jpg",
-    "index.html": "/react-millionaire/index.html",
-    "main.945de07e.css.map": "/react-millionaire/static/css/main.945de07e.css.map",
-    "main.34b74da2.js.map": "/react-millionaire/static/js/main.34b74da2.js.map",
-    "512.29f0d401.chunk.js.map": "/react-millionaire/static/js/512.29f0d401.chunk.js.map"
+    "main.css": "/react-quiz-hatespeech-milionaire-theme/static/css/main.5e9aaf98.css",
+    "main.js": "/react-quiz-hatespeech-milionaire-theme/static/js/main.ce6bed02.js",
+    "static/js/512.29f0d401.chunk.js": "/react-quiz-hatespeech-milionaire-theme/static/js/512.29f0d401.chunk.js",
+    "static/media/background.jpg": "/react-quiz-hatespeech-milionaire-theme/static/media/background.587a1e91992cf6aeeb23.jpg",
+    "index.html": "/react-quiz-hatespeech-milionaire-theme/index.html",
+    "main.5e9aaf98.css.map": "/react-quiz-hatespeech-milionaire-theme/static/css/main.5e9aaf98.css.map",
+    "main.ce6bed02.js.map": "/react-quiz-hatespeech-milionaire-theme/static/js/main.ce6bed02.js.map",
+    "512.29f0d401.chunk.js.map": "/react-quiz-hatespeech-milionaire-theme/static/js/512.29f0d401.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.945de07e.css",
-    "static/js/main.34b74da2.js"
+    "static/css/main.5e9aaf98.css",
+    "static/js/main.ce6bed02.js"
   ]
 }
