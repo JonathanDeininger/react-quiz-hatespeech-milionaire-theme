@@ -1,9 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-import fiveToEight from "../assets/five-eight.mp3";
-import eightToEleven from "../assets/eight-eleven.mp3";
-import elevenToThirteen from "../assets/eleven-thirteen.mp3";
-import fourteen from "../assets/fourteen.mp3";
-import fifteen from "../assets/fifteen.mp3";
+import React, { useState, useEffect } from "react";
 
 const Quiz = ({
   questions,
@@ -15,91 +10,17 @@ const Quiz = ({
   setQuizStarted,
   setShowExplanationModal, // Bestehende Prop
   setExplanation, // Neue Prop
-  setAnswersLocked, // Hinzugefügt
+  answersLocked, // Receive from props
+  setAnswersLocked, // Receive from props
 }) => {
   const [question, setQuestion] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [answersLocked, setAnswersLockedLocal] = useState(false); // Optional: Lokaler Zustand, falls benötigt
-
-  // refs for various audio tracks
-  const audioRefs = {
-    fiveToEight: useRef(new Audio(fiveToEight)),
-    eightToEleven: useRef(new Audio(eightToEleven)),
-    elevenToThirteen: useRef(new Audio(elevenToThirteen)),
-    fourteen: useRef(new Audio(fourteen)),
-    fifteen: useRef(new Audio(fifteen)),
-    // TODO: add correct/incorrect sounds, maybe lock in answer
-  };
-
-  // Better way to play multiple audios. Plays song for the round and stops and resets all other audio tracks
-  const playAudio = (audioRef) => {
-    Object.values(audioRefs).forEach((ref) => {
-      if (
-        ref.current !== audioRef.current
-      ) {
-        ref.current.pause();
-        ref.current.currentTime = 0;
-      }
-    });
-
-    // loop the playing songs
-    audioRef.current.loop = true;
-    audioRef.current.play().catch((error) => {
-      console.error("Audio playback failed:", error);
-    });
-  };
-
-  // Modify the existing useEffect to exclude backgroundMusic
-  useEffect(() => {
-    if (quizStarted) {
-      const {
-        fiveToEight,
-        eightToEleven,
-        elevenToThirteen,
-        fourteen,
-        fifteen,
-      } = audioRefs;
-
-      // Play specific audio based on question number, excluding backgroundMusic
-      const playSpecificAudio = () => {
-        if (questionNumber < 6) {
-        } else if (questionNumber < 9) {
-          playAudio(fiveToEight);
-        } else if (questionNumber < 12) {
-          playAudio(eightToEleven);
-        } else if (questionNumber < 14) {
-          playAudio(elevenToThirteen);
-        } else if (questionNumber === 14) {
-          playAudio(fourteen);
-        } else if (questionNumber === 15) {
-          playAudio(fifteen);
-        }
-      };
-
-      playSpecificAudio();
-    }
-  }, [questionNumber, quizStarted, audioRefs, playAudio]);
-
-  useEffect(() => {
-    return () => {
-      Object.values(audioRefs).forEach(ref => {
-        ref.current.pause();
-        ref.current.currentTime = 0;
-      });
-    };
-  }, [audioRefs]);
 
   // Update the current question when the question number changes
   useEffect(() => {
     setQuestion(questions[questionNumber - 1]);
   }, [questions, questionNumber]);
 
-  // Delays the execution of a callback function for any given time
-  const delay = (duration, callBack) => {
-    setTimeout(() => {
-      callBack();
-    }, duration);
-  };
 
   // Call handleBecomeMillionaire function when becoming a millionaire
   useEffect(() => {
@@ -121,17 +42,31 @@ const Quiz = ({
   const handleLockIn = () => {
     if (!selectedAnswer) {
       alert("Sie können keine Antwort sperren, wenn sie nicht ausgewählt ist!");
-    } else if (!answersLocked) {
-      setAnswersLocked(true);
-      
-      // Entfernen Sie die Verzögerung und führen Sie die Logik sofort aus
+      return;
+    }
+
+    if (!answersLocked) {
+      setAnswersLocked(true); // Use the setter from props
+
       if (selectedAnswer.correct) {
-        setExplanation(question.explanation);
-        setShowExplanationModal(true);
+        if (questionNumber === questions.length) {
+          // Last question answered correctly
+          setExplanation({
+            message: "🎉 Glückwunsch!!! Du hast die Millionen Gewonnen!!! 🎉💰💰💰",
+            detail: "Vielen Dank fürs Spielen!",
+          });
+          setShowExplanationModal(true);
+          handleBecomeMillionaire(); // Optional: Sets isMillionaire to true
+        } else {
+          // Correct answer for other questions
+          setExplanation({ message: "🎉 Korrekt!", detail: question.explanation });
+          setShowExplanationModal(true);
+        }
       } else {
-        setExplanation(`Das war falsch: ${question.explanation}`);
+        // Incorrect answer
+        setExplanation({ message: "Das war falsch:", detail: question.explanation });
         setShowExplanationModal(true);
-        setTimeOut(true); // Aktivieren Sie setTimeOut, um "Starte neu!" anzuzeigen
+        setTimeOut(true); // Activate setTimeOut to display "Starte neu!"
       }
     }
   };
@@ -140,6 +75,9 @@ const Quiz = ({
     <div className="quiz-content">
       {!quizStarted ? (
         <div className="start-container">
+          <h1>Quiz gegen Hass</h1>
+
+          <div className="spacer"></div>
           <button className="start-button" onClick={() => setQuizStarted(true)}>
             Quiz starten
           </button>

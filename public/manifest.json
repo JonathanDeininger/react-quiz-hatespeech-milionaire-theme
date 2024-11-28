@@ -1,6 +1,6 @@
 {
-  "short_name": "Millionaire Quiz",
-  "name": "Create React App Sample",
+  "short_name": "Quiz",
+  "name": "Quiz gegen Hass",
   "icons": [
     {
       "src": "favicon.ico",

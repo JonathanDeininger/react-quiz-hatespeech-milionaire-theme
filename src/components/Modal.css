@@ -9,10 +9,12 @@
   justify-content: center;
   align-items: center;
   font-size: x-large;
-  z-index: 1000;
+  z-index: 1000; /* Ensure it's above all other elements */
 }
 
 .modal-content {
+  display: flex;
+  flex-direction: column;
   background-color: #1a0591;
   padding: 30px;
   border-radius: 10px;
@@ -41,15 +43,14 @@
 .explanation-modal {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items horizontally */
+  align-items: center; /* Center child elements horizontally */
 }
 
 .explanation-modal p {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 30px;
-  width: 50vw;
+  font-size: 24px; /* Increased font size */
+  text-align: center; /* Center the text */
+  max-width: 50%; /* Limit width to approximately 50% */
+  margin: 10px auto; /* Center horizontally with automatic side margins */
 }
 
 .explanation-modal p span {

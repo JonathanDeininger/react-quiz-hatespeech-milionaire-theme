@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import GameWinner from "./components/GameWinner";
 import Quiz from "./components/Quiz";
 import Timer from "./components/Timer";
 import { questions, prizeSums } from "./questions";
@@ -14,7 +13,7 @@ function App() {
   const [earnedMoney, setEarnedMoney] = useState("0 €");
   const [quizStarted, setQuizStarted] = useState(false);
   const [showExplanationModal, setShowExplanationModal] = useState(false); // Neuer State
-  const [explanation, setExplanation] = useState(""); // Neuer Zustand für Erklärungstext
+  const [explanation, setExplanation] = useState({ message: "", detail: "" }); // Initialize as object
 
   // Update earned money when the question number changes
   useEffect(() => {
@@ -39,7 +38,7 @@ function App() {
     setEarnedMoney("0 €");
     setQuizStarted(false);
     setShowExplanationModal(false);
-    setExplanation("");
+    setExplanation({ message: "", detail: "" }); // Reset to object
     
     // Optionally, ensure all audio is stopped by unmounting Quiz component
     // This is already handled by the cleanup in Quiz.js
@@ -49,22 +48,14 @@ function App() {
     setQuestionNumber((prev) => prev + 1);
     setAnswersLocked(false);
     setShowExplanationModal(false);
-    setExplanation("");
+    setExplanation({ message: "", detail: "" }); // Reset to object
   };
 
   return (
     <div className="App">
       <div className={`main ${showExplanationModal ? "blur" : ""}`}>
-        {/* Entfernen Sie den GameOver-Block */}
-        {/* {timeOut ? (
-          <GameOver className="game-over" earnedMoney={earnedMoney} />
-        ) : isMillionaire ? (
-          <GameWinner className="game-over" />
-        ) : (
-          // game content
-        )} */}
-
-        {/* Aktualisieren Sie die Bedingung zur Anzeige des GameWinner */}
+  
+        {/* Conditional rendering of Game Content */}
         {!isMillionaire && !timeOut && (
           <div className="game-container">
             <div className="quiz-section">
@@ -88,6 +79,8 @@ function App() {
                 setQuizStarted={setQuizStarted}
                 setShowExplanationModal={setShowExplanationModal}
                 setExplanation={setExplanation} // Neue Prop
+                answersLocked={answersLocked} // Pass answersLocked
+                setAnswersLocked={setAnswersLocked} // Pass setAnswersLocked
               />
             </div>
             <div className="money">
@@ -110,25 +103,36 @@ function App() {
           </div>
         )}
 
-        {/* Anzeige von GameWinner, falls isMillionaire true ist */}
-        {isMillionaire && (
-          <GameWinner className="game-over" />
-        )}
+
       </div>
+      
+      {/* Modal Integration */}
       {showExplanationModal && (
         <Modal>
           <div className="explanation-modal">
-            <p>
-              {explanation} {!timeOut && "🎉"}
-            </p>
-            {isMillionaire || timeOut ? (
-              <button className="next-button" onClick={resetGame}>
-                Starte neu!
-              </button>
+            {isMillionaire ? (
+              /* Integrate GameWinner Content Within Modal */
+              <>
+                <p>🎉💰💰💰💰 Herzlichen Glückwunsch! Du hast alles richtig beantwortet und die Millionen gewonnen! 🎉💰💰💰💰💰</p>
+                <button className="next-button" onClick={resetGame}>
+                  Neu starten
+                </button>
+              </>
             ) : (
-              <button className="next-button" onClick={handleNextQuestion}>
-                Weiter
-              </button>
+              /* Existing Explanation Modal Content */
+              <>
+                {explanation.message && <p>{explanation.message}</p>}
+                <p>{explanation.detail}</p>
+                {isMillionaire || timeOut ? (
+                  <button className="next-button" onClick={resetGame}>
+                    Starte neu!
+                  </button>
+                ) : (
+                  <button className="next-button" onClick={handleNextQuestion}>
+                    Weiter
+                  </button>
+                )}
+              </>
             )}
           </div>
         </Modal>

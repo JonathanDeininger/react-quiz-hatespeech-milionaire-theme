@@ -6,8 +6,6 @@
   flex-direction: column;
 }
 
-/* Optional: Globale Stile für das Modal können hier hinzugefügt werden */
-
 .main {
   width: 100%;
   min-height: 100%;
@@ -30,17 +28,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-y: auto; /* Changed from scroll to auto */
+  max-height: 100vh; /* Ensure it doesn't exceed viewport height */
+}
+
+.money-list {
+  width: 90%;
+  max-width: 300px;
+  padding: 25px;
+  list-style: none;
+  margin: 0 auto;
+}
+
+.amount {
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
 }
 
 .quiz-section {
   width: 75%;
+  /* Fixed typo: 'height' instead of 'heigt' */
+  height: 100vh;
 }
 
-.quiz {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.quiz-content {
+  /* Ensure proper spacing and alignment */
+  padding: 20px;
 }
 
 .question {
@@ -143,8 +157,8 @@
   font-weight: 500;
   font-size: 22px;
   cursor: pointer;
-  display: block; /* Fügen Sie display: block hinzu */
-  margin-left: auto; /* Zentrieren durch automatische Ränder */
+  display: block; /* Ensure display block */
+  margin-left: auto; /* Center horizontally */
   margin-right: auto;
 }
 
@@ -164,16 +178,6 @@
 .item.active {
   background: radial-gradient(#ff8800, #863c04);
   box-shadow: 0 0 5px orange, 0 0 25px orange;
-}
-
-.money {
-  width: 25%;
-  background-color: #121112;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow-y: auto; /* Changed from scroll to auto */
-  max-height: 100vh; /* Ensure it doesn't exceed viewport height */
 }
 
 .money-list {
@@ -222,7 +226,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  flex-direction: column; /* Center items vertically */
+  height: 50vh;
+}
+
+.spacer {
+  height: 10vh;
 }
 
 .start-button {
@@ -270,4 +279,11 @@
 .explanation-modal p {
   font-size: 24px; /* Increased font size */
   text-align: center; /* Center the text */
+  max-width: 50%; /* Limit width to approximately 50% */
+  margin: 10px auto; /* Center horizontally with automatic side margins */
+}
+
+.explanation-modal p span {
+  margin-left: 10px;
+  font-size: 24px;
 }
