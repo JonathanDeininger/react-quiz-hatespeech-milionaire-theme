@@ -156,18 +156,18 @@ export const questions = [
 ];
 
 export const prizeSums = [
-  { id: 1, amount: "100 €" },
-  { id: 2, amount: "200 €" },
-  { id: 3, amount: "400 €" },
-  { id: 4, amount: "800 €" },
-  { id: 5, amount: "1600 €" },
-  { id: 6, amount: "3200 €" },
-  { id: 7, amount: "6400 €" },
-  { id: 8, amount: "10.000 €" },
-  { id: 9, amount: "20.000 €" },
-  { id: 10, amount: "50.000 €" },
-  { id: 11, amount: "100.000 €" },
-  { id: 12, amount: "250.000 €" },
-  { id: 13, amount: "500.000 €" },
-  { id: 14, amount: "1.000.000 €" }
+  { id: 1, amount: "100" },
+  { id: 2, amount: "200" },
+  { id: 3, amount: "400" },
+  { id: 4, amount: "800" },
+  { id: 5, amount: "1600" },
+  { id: 6, amount: "3200" },
+  { id: 7, amount: "6400" },
+  { id: 8, amount: "10.000" },
+  { id: 9, amount: "20.000" },
+  { id: 10, amount: "50.000" },
+  { id: 11, amount: "100.000" },
+  { id: 12, amount: "250.000" },
+  { id: 13, amount: "500.000" },
+  { id: 14, amount: "1.000.000" }
 ];
