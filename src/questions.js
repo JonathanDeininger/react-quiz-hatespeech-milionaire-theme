@@ -8,18 +8,18 @@ export const questions = [
       { text: "Freie Meinungsäußerung und sagen können, was man denkt", correct: false },
       { text: "Scherzhafte Kritik am Spiel", correct: false },
     ],
-    explanation: "Unter Hate Speech verstehen wir abwertende, menschenverachtende und herabwürdigende Kommentare gegen Einzelne oder Gruppen. Kritik am Spiel oder gegen Objekte ist nicht als Hate Speech zu verstehen.",
+    explanation: "Unter Hate Speech versteht man abwertende, menschenverachtende und herabwürdigende Kommentare gegen Einzelne oder Gruppen. Kritik am Spiel oder gegen Objekte ist keine Hate Speech. Freie Meinungsäußerung erlaubt es, Kritik zu äußern, ohne Menschen zu verletzen.",
   },
   {
     id: 2,
-    question: "Welche dieser Aussagen gilt nicht als Hate Speech?",
+    question: "Welche dieser Aussagen kann ein Beispiel für Hate Speech sein?",
     answers: [
-      { text: "„Ich hab gar keinen Bock mehr auf das Spiel“", correct: true },
-      { text: "„Frauen können gar nicht zocken, geh in die Küche!“", correct: false },
+      { text: "„Ich hab gar keinen Bock mehr auf das Spiel“", correct: false },
+      { text: "„Frauen können gar nicht zocken, geh in die Küche!“", correct: true },
       { text: "„Du gehst mir auf den Sack!“", correct: false },
       { text: "„Du spielst wie ein Profi!“", correct: false },
     ],
-    explanation: "Hate Speech greift eine ganze Gruppe oder eine Person wegen ihrer Zugehörigkeit zu einer Gruppe an. Aussagen, die lediglich persönliche Beleidigungen ohne Gruppenbezug sind, gelten nicht als Hate Speech.",
+    explanation: "Hate Speech greift immer eine Gruppe oder eine Person wegen ihrer Zugehörigkeit zu einer Gruppe an (z. B. wegen ihrer Herkunft oder ihres Geschlechts). Beleidigungen richten sich meistens nur gegen eine einzelne Person, ohne dabei eine Gruppe anzugreifen.",
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ export const questions = [
       { text: "Sich selbst zu verbessern", correct: false },
       { text: "Feedback an die Entwickler zu geben", correct: false },
     ],
-    explanation: "Hate Speech wird oft mit dem Ziel betrieben, andere einzuschüchtern und herabzuwürdigen. Damit geht die Entmenschlichung bestimmter Gruppen einher.",
+    explanation: "Hate Speech wird oft mit dem Ziel betrieben, andere einzuschüchtern und herabzuwürdigen. Damit geht die Entmenschlichung bestimmter Gruppen einher. Andere häufige Ziele sind: Aufmerksamkeit erregen, Aggression schüren, Abbau von Frustration oder die Steigerung des Selbstwertgefühls.",
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ export const questions = [
       { text: "Spieler*innen mit hoher Punktzahl", correct: false },
       { text: "Alle Spieler*innen gleichermaßen", correct: false },
     ],
-    explanation: "Frauen, LGBTQ+ Personen und Minderheiten sind überdurchschnittlich oft von Hate Speech betroffen. Dies liegt an Vorurteilen und diskriminierenden Wahrnehmungen innerhalb der Gaming-Community.",
+    explanation: "Frauen, LGBTQ+ Personen und Minderheiten sind überdurchschnittlich oft betroffen. Das liegt zum Beispiel daran, dass Gaming von vielen als eher männlich wahrgenommen wird. Menschen, die dem nicht entsprechen, werden deshalb für ihr “Anders sein” eher zum Ziel.",
   },
   {
     id: 5,
@@ -52,18 +52,18 @@ export const questions = [
       { text: "Die Situation melden und moderieren lassen", correct: true },
       { text: "Sich vollständig aus der Community zurückziehen", correct: false },
     ],
-    explanation: "In den meisten Gaming-Communities können Hasskommentare gemeldet werden und führen zu Konsequenzen wie Spielsperren oder Abstufungen.",
+    explanation: "In den meisten Gaming-Communities können Hasskommentare gemeldet werden und führen zu Konsequenzen. Eine einladende Community macht nicht nur Spaß, sondern bringt den Entwickler*innen auch mehr.",
   },
   {
     id: 6,
-    question: "Wie bezeichnet man Personen, die absichtlich Hate Speech betreiben?",
+    question: "Wie bezeichnet man Personen, die absichtlich Unruhe stiften?",
     answers: [
       { text: "Trolle", correct: true },
       { text: "Geeks", correct: false },
       { text: "Tanks", correct: false },
       { text: "Noobs", correct: false },
     ],
-    explanation: "Menschen, die gezielt Hass verbreiten, werden auch Trolle genannt. Ihr Ziel ist es, andere anzustacheln und schlechte Laune zu verbreiten.",
+    explanation: "Neben dem Begriff “Hater” werden Menschen, die gerne gezielt Hass verbreiten, auch Trolle genannt. Ihr Ziel ist es, andere anzustacheln und emotionale Reaktionen zu erzeugen.",
   },
   {
     id: 7,
@@ -74,7 +74,7 @@ export const questions = [
       { text: "Machtgefühl", correct: true },
       { text: "Wettertief", correct: false },
     ],
-    explanation: "Ein Gefühl von Macht und Anonymität motiviert Täter oft zu Hate Speech.",
+    explanation: "Personen, die Hate Speech betreiben, verspüren dabei ein gewisses Gefühl von Macht. Sie stellen sich über andere Personen, indem sie die Betroffenen runtermachen.",
   },
   {
     id: 8,
@@ -85,7 +85,7 @@ export const questions = [
       { text: "Betroffene unterstützen und Fälle melden", correct: true },
       { text: "Das Spiel löschen", correct: false },
     ],
-    explanation: "Betroffene zu unterstützen und Hate Speech zu melden, ist der effektivste Weg, aktiv dagegen vorzugehen.",
+    explanation: "Das Beste ist, die Betroffenen zu unterstützen. Wer Fälle meldet, hilft außerdem dabei, Konsequenzen in die Wege zu leiten.",
   },
   {
     id: 9,
@@ -96,18 +96,18 @@ export const questions = [
       { text: "Spiele werden realistischer", correct: false },
       { text: "Gemeinschaften werden stärker", correct: false },
     ],
-    explanation: "Hate Speech kann dazu führen, dass sich Betroffene ausgeschlossen und unsicher fühlen, besonders ohne Unterstützung.",
+    explanation: "Betroffene können sich schnell ausgeschlossen fühlen, vor allem wenn sie keine Unterstützung bekommen. Von Hate Speech durchzogene Communities sind weniger einladend.",
   },
   {
     id: 10,
-    question: "Was bedeutet der Begriff \"toxische Community\"?",
+    question: "Was bedeutet der Begriff 'toxische Community'?",
     answers: [
       { text: "Eine Community, die viele hilfreiche Tipps gibt", correct: false },
       { text: "Eine Community mit aggressivem, beleidigendem Verhalten", correct: true },
-      { text: "Eine Community für Vergiftungserscheinungen", correct: false },
+      { text: "Eine Community zur Hilfe bei Vergiftungserscheinungen", correct: false },
       { text: "Eine Elite-Gaming-Community mit Giftschlange als Wappen", correct: false },
     ],
-    explanation: "Eine toxische Community zeichnet sich durch aggressives und beleidigendes Verhalten aus.",
+    explanation: "In toxischen Communities verhalten sich viele Mitglieder negativ. Der Umgang ist aggressiv und Beleidigungen sind an der Tagesordnung.",
   },
   {
     id: 11,
@@ -115,10 +115,10 @@ export const questions = [
     answers: [
       { text: "Einführung von Moderations-Tools wie z.B. Schimpfwortfilter oder Meldefunktionen", correct: true },
       { text: "Einführung von Straffreiheit für gute Spieler*innen", correct: false },
-      { text: "Spieler ohne Einschränkungen kommunizieren lassen", correct: false },
+      { text: "Spieler ohne Einschränkungen kommunizieren lassen, das Problem löst sich so von selbst", correct: false },
       { text: "Gaming-Chats auf Emojis begrenzen", correct: false },
     ],
-    explanation: "Moderations-Tools wie Schimpfwortfilter und Meldefunktionen helfen, Hate Speech in Chats zu verringern.",
+    explanation: "Chatfilter reduzieren Stress und beugen Eskalation von Konflikten vor. Meldefunktionen ermöglichen eine schnelle Bestrafung von schlechtem Verhalten.",
   },
   {
     id: 12,
@@ -129,7 +129,7 @@ export const questions = [
       { text: "Es betrifft nur bestimmte Genres", correct: false },
       { text: "Es reduziert die Serverkapazität", correct: false },
     ],
-    explanation: "Hate Speech vergiftet das Klima der gesamten Community und ist kein isoliertes Problem.",
+    explanation: "Hate Speech vergiftet das gesamte Klima in der Gaming-Community. Besonders als Neuling hat man in solchen Communities schnell keinen Spaß mehr.",
   },
   {
     id: 13,
@@ -140,7 +140,7 @@ export const questions = [
       { text: "„Du spielst wirklich schlecht“", correct: false },
       { text: "„Du spielst mit meinen Gefühlen :(“", correct: false },
     ],
-    explanation: "Indirekte Hate Speech beinhaltet abwertende Bemerkungen, die vermeintlich als Kompliment formuliert sind.",
+    explanation: "Indirekte Hate Speech ist subtiler, weil keine direkten Beleidigungen verwendet werden. Hier wird davon ausgegangen, dass Frauen nicht gut spielen können, weil sie Frauen sind.",
   },
   {
     id: 14,
@@ -151,9 +151,8 @@ export const questions = [
       { text: "Sie reduziert toxisches Verhalten", correct: false },
       { text: "Sie sorgt für bessere Leistung im Spiel", correct: false },
     ],
-    explanation: "Anonymität im Gaming bestärkt Täter, da sie weniger Konsequenzen befürchten müssen.",
-  },
-];
+    explanation: "Anonymität bestärkt Täter*innen, weil es weniger Konsequenzen gibt. Betroffene hingegen können
+
 
 export const prizeSums = [
   { id: 1, amount: "100" },
