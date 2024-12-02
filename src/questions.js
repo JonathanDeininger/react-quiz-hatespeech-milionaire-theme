@@ -151,7 +151,9 @@ export const questions = [
       { text: "Sie reduziert toxisches Verhalten", correct: false },
       { text: "Sie sorgt für bessere Leistung im Spiel", correct: false },
     ],
-    explanation: "Anonymität bestärkt Täter*innen, weil es weniger Konsequenzen gibt. Betroffene hingegen können
+    explanation: "Anonymität bestärkt Täter*innen, weil es weniger Konsequenzen gibt. Betroffene hingegen können sich schlecht verteidigen, da sie meist nicht wissen, wer hinter dem Account steckt.",
+  },
+];
 
 
 export const prizeSums = [
