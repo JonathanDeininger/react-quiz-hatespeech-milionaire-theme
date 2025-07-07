@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-quiz-hatespeech-milionaire-theme/static/css/main.36ce5e9a.css",
-    "main.js": "/react-quiz-hatespeech-milionaire-theme/static/js/main.941b5fec.js",
-    "static/js/512.29f0d401.chunk.js": "/react-quiz-hatespeech-milionaire-theme/static/js/512.29f0d401.chunk.js",
-    "index.html": "/react-quiz-hatespeech-milionaire-theme/index.html",
-    "main.36ce5e9a.css.map": "/react-quiz-hatespeech-milionaire-theme/static/css/main.36ce5e9a.css.map",
-    "main.941b5fec.js.map": "/react-quiz-hatespeech-milionaire-theme/static/js/main.941b5fec.js.map",
-    "512.29f0d401.chunk.js.map": "/react-quiz-hatespeech-milionaire-theme/static/js/512.29f0d401.chunk.js.map"
+    "main.css": "/QuizGegenHass/static/css/main.12047bce.css",
+    "main.js": "/QuizGegenHass/static/js/main.e163dfe9.js",
+    "static/js/453.670e15c7.chunk.js": "/QuizGegenHass/static/js/453.670e15c7.chunk.js",
+    "index.html": "/QuizGegenHass/index.html",
+    "main.12047bce.css.map": "/QuizGegenHass/static/css/main.12047bce.css.map",
+    "main.e163dfe9.js.map": "/QuizGegenHass/static/js/main.e163dfe9.js.map",
+    "453.670e15c7.chunk.js.map": "/QuizGegenHass/static/js/453.670e15c7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.36ce5e9a.css",
-    "static/js/main.941b5fec.js"
+    "static/css/main.12047bce.css",
+    "static/js/main.e163dfe9.js"
   ]
 }
